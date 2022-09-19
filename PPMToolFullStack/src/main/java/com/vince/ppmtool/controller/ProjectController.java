@@ -1,7 +1,7 @@
 package com.vince.ppmtool.controller;
 
 import com.vince.ppmtool.domain.Project;
-import com.vince.ppmtool.services.ProjectService;
+import com.vince.ppmtool.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
