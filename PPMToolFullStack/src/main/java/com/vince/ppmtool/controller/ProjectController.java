@@ -1,6 +1,7 @@
 package com.vince.ppmtool.controller;
 
 import com.vince.ppmtool.domain.Project;
+import com.vince.ppmtool.service.MapValidationErrorService;
 import com.vince.ppmtool.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,17 +25,15 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    private MapValidationErrorService mapValidationErrorService;
+
+
     @PostMapping("")
-    public ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult result){
-        if (result.hasErrors()){
-            // extract object errors
-            // key = field, value = error message : Use map data structure
-            Map<String, String> errorMap = new HashMap<>();
-            for (FieldError error : result.getFieldErrors()){
-                errorMap.put(error.getField(), error.getDefaultMessage());
-            }
-            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult result) {
+        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+        if (errorMap != null) return errorMap;
+
         Project project1 = projectService.saveOrUpdateProject(project);
         return new ResponseEntity<Project>(project, HttpStatus.CREATED);
     }
