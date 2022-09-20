@@ -1,10 +1,12 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import { errorReducer } from '../reducers/errorReducer';
+import projectReducer from '../reducers/projectReducer';
 
 const rootReducer = combineReducers({
   // here we will be adding reducers
   errors: errorReducer,
+  project: projectReducer,
 });
 
 const store = configureStore({

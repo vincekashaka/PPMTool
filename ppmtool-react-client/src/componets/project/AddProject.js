@@ -85,23 +85,37 @@ class AddProject extends Component {
                   <div className='form-group'>
                     <input
                       type='text'
-                      className='form-control form-control-lg'
+                      className={`form-control form-control-lg ${
+                        errors.projectName ? 'is-invalid' : ''
+                      }`}
                       placeholder='Unique Project ID'
                       name='projectIdentifier'
                       value={this.state.projectIdentifier}
                       onChange={this.onChange}
                     />
-                    <p>{errors.projectIdentifier}</p>
+                    {errors.projectIdentifier && (
+                      <div className='invalid-feedback'>
+                        {errors.projectIdentifier}
+                      </div>
+                    )}
+                    <br />
                   </div>
                   <div className='form-group'>
                     <textarea
-                      className='form-control form-control-lg'
+                      className={`form-control form-control-lg ${
+                        errors.projectName ? 'is-invalid' : ''
+                      }`}
                       placeholder='Project Description'
                       name='projectDescription'
                       value={this.state.projectDescription}
                       onChange={this.onChange}
                     />
-                    <p>{errors.projectDescription}</p>
+                    {errors.projectDescription && (
+                      <div className='invalid-feedback'>
+                        {errors.projectDescription}
+                      </div>
+                    )}
+                    <br />
                   </div>
                   <h6>Start Date</h6>
                   <div className='form-group'>
