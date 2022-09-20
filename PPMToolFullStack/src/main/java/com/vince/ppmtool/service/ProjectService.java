@@ -45,4 +45,12 @@ public class ProjectService {
         projectRepository.delete(project);
     }
 
+//    public Project updateProject(Project project){
+//        Project existingProject = projectRepository.findByProjectIdentifier(project.getProjectIdentifier());
+//        existingProject.setProjectIdentifier(project.getProjectIdentifier());
+//        existingProject.setProjectDescription(project.getProjectDescription());
+//        existingProject.setProjectName(project.getProjectName());
+//        return projectRepository.save(existingProject);
+//    }
+
 }
