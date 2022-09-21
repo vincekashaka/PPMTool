@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import ProjectItem from './project/ProjectItem';
 
 export default class Dashboard extends Component {
   render() {
-    return <div> Welcome to the Dashboard</div>;
+    return (
+      <div>
+        <h1> Welcome to the Dashboard</h1>;
+        <ProjectItem />
+      </div>
+    );
   }
 }
