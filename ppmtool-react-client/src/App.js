@@ -12,8 +12,9 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/addProject' element={<AddProject />} />
+          <Route exact path='/dashboard' element={<Dashboard />} />
+          <Route exact path='/dashboard/addProject' element={<AddProject />} />
+          <Route />
         </Routes>
       </div>
     </Router>
