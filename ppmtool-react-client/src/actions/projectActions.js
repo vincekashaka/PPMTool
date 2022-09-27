@@ -1,6 +1,9 @@
 import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
 
 import { GET_ERRORS, GET_PROJECTS } from './types';
+
+// const navigate = useNavigate();
 
 export const createProject = (project, history) => async (dispatch) => {
   try {
@@ -8,9 +11,12 @@ export const createProject = (project, history) => async (dispatch) => {
       'http://localhost:8080/api/v1/project',
       project
     );
+
     // dispatch({ type: GET_ERRORS, payload: { ...res, history } });
     history.push('/');
+    // navigate('/');
   } catch (err) {
+    console.log(err.response);
     dispatch({
       type: GET_ERRORS,
       payload: err.response.data,
