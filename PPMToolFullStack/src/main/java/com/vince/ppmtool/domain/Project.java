@@ -47,7 +47,6 @@ public class Project {
 
 
 @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "project")
-//
 private Backlog backlog;
 
     @PrePersist
