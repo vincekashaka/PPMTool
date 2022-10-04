@@ -7,7 +7,7 @@ An API for My Personal Project Management Tool.
 ## Requirements
 
 - spring boot
-- databae
+- database
 - marven
 
  
@@ -18,7 +18,7 @@ An API for My Personal Project Management Tool.
 
  
 
-For connecting the API against the database you can use `docker-compose`
+For connecting the API against the database you can use local database or `docker-compose`
 ```bash
 # database
 $ docker-compose up
